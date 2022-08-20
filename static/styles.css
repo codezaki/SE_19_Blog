@@ -1,0 +1,215 @@
+/*Login page */
+body{
+    font-family: "Roboto";
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#top_bar {
+    height: 100px;
+    color: white;
+    background-color: lightgray;
+    font-size: 65px;
+    padding-left: 30px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+#login_space {
+    height: 400px;
+    width: 800px;
+    background-color: darkcyan;
+    margin: auto;
+    margin-top: 150px;
+}
+
+#login_title {
+    background-color: lightgray;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    height: 70px;
+    padding-top: 30px;
+    padding-left: 100px;
+}
+
+#login_inputs {
+    background-color: lightgray;
+    margin-top: 30px;
+    height: 300px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+#input {
+    height: 30px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+#submit {
+    margin-top: 70px;
+    background-color: darkcyan;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#signup {
+    float: right;
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Signup page */
+
+#signup_space {
+    height: 400px;
+    width: 800px;
+    background-color: darkcyan;
+    margin: auto;
+    margin-top: 150px;
+}
+
+#signup_inputs {
+    background-color: lightgray;
+    margin-top: 30px;
+    height: 400px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+
+/* User profile stuff */
+
+
+#upper_profile_area {
+
+    /* height: 300px; */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#create_post {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    bottom: 130px;
+    right: 50px;
+    
+}
+
+#profile_name_avatar {
+    position: relative;
+    background-color: white;
+    width: 120px;
+    height: 150px;
+    top: 40px;
+    left: 40px;
+    border-style: solid;
+}
+
+#profile_name {
+    position: relative;
+    background-color: gray;
+    height: 40px;
+    top: 30px;
+    right: 2px;
+    width: 124px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+#avatar {
+    height: 110px;
+}
+
+#sign_out {
+    float: right;
+    color: white;
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.button {
+    background-color: darkcyan;
+    border: none;
+    color: white;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.delete_button{
+    background-color: darkred;
+}
+.edit_button{
+    background-color: green;
+}
+
+.post_card {
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.post_card_content {
+    overflow-wrap: anywhere;
+}
+
+.post_card_text {
+    margin-right: 15px;
+}
+
+.post_card_buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+textarea {
+    resize: none;
+    font-family: "Roboto";
+}

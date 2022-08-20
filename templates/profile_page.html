@@ -1,0 +1,73 @@
+{% extends 'base_template.html' %}
+{% block body %}
+
+    <div id="upper_profile_area">
+        <div id="profile_name_avatar">
+            <div id="avatar">Profile picture</div><br>
+            <div id="profile_name">COOL NAME</div>
+        </div>
+        <div id="create_post">
+            <h2>Create Post</h2> 
+            <h4 style="margin-bottom: 0px;">Title</h4>
+            <form action="/createpost" method="post">
+                <input name = "title" id="post_title" rows="10" cols="100" required maxlength="50"/><br/>
+                <h4 style="margin-bottom: 0px;">Content</h4>
+                <textarea name = "content" id="create_post_input" rows="10" cols="100" required maxlength="300"></textarea><br>
+                <button class = "button" id="submit_post">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+    <div id="lower_profile_area">
+        <h2>Your Posts</h2>
+        {% for post in posts %}
+            <div class="post_card">
+                <div class="post_card_text">
+                    <h3>{{post.title}}</h3>
+                    <p class="post_card_content">{{post.content}}</p>
+                </div>
+                <div class="post_card_buttons">
+                    <form action= "/delete/{{post.id}}" method = "post">
+                        <button class="delete_button button">Delete</button>
+                    </form>
+                    <!-- Production Code -->
+                    <!-- <button class="edit_button button" onclick="{{'handleClick('+str(post.id) +', \''+ post.title +'\', \''+ post.content +'\')'}}">edit</button> --> 
+                    
+                    <!-- Dev Code -->
+                    <button class="edit_button button" onclick='handleClick("{{post.id}}", "{{post.title}}", "{{post.content}}")'>edit</button>
+
+                </div>
+                
+                
+            </div>
+        {% endfor %}
+    </div>
+    <dialog id="edit_popup"> 
+        <div id="create_post">
+            <h2>edit Post</h2> 
+            <h3 style="margin-bottom: 0px;">Title</h3>
+            <form id="edit_form" action="/editpost/" method="post">
+                <input name = "title" id="edit_title" rows="10" cols="100" required/><br/>
+                <textarea name = "content" id="edit_post_input" style="margin-top: 15px;" rows="10" cols="100" required></textarea><br>
+                <button class = "button" id="submit_post">SUBMIT</button>
+            </form>
+        </div>
+    </dialog>
+    <script>
+        let dialogEl = document.getElementById("edit_popup")
+        let editFormEl = document.getElementById("edit_form")
+        let titleEl = document.getElementById("edit_title")
+        let contentEl = document.getElementById("edit_post_input")
+        const handleClick = (id, title, content)=>{
+            editFormEl.action += id
+            titleEl.value = title
+            contentEl.value = content
+            dialogEl.showModal()
+        }
+        dialogEl.addEventListener('click', (e)=>{
+            if (e.target===dialogEl){
+                dialogEl.close()
+            }
+        })
+    </script>
+
+{% endblock %}
