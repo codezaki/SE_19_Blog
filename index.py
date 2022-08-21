@@ -1,12 +1,14 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from re import escape
+from sqlalchemy_serializer import SerializerMixin
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
-class Post(db.Model):
+class Post(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(500), nullable=False)
     title = db.Column(db.String(50), nullable=False)
@@ -15,11 +17,11 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Task %r>' % self.id
-
+    
 @app.route("/")
 def hello_world():
     posts = Post.query.all()
-    return render_template("profile_page.html", posts = posts, str = str)
+    return render_template("profile_page.html", posts = posts, str = str, escape = escape, enumerate = enumerate)
 
 @app.route("/createpost", methods = ["POST"])
 def submit_post():

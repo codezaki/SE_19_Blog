@@ -226,3 +226,12 @@ textarea {
     text-align: center;
     margin-top: 10px;
 }
+
+#edit_popup {
+    padding: 0;
+}
+
+#edit_post_dialog {
+    padding: -23px;
+    margin: 23px;
+}
