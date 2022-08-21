@@ -17,8 +17,9 @@
             </form>
         </div>
     </div>
+    <div class="line">______________________________________________________________________________________________________________________________</div>
     <div id="lower_profile_area">
-        <h2>Your Posts</h2>
+        <h1 id="your_posts">Your Posts</h1>
         {% for post in posts %}
             <div class="post_card">
                 <div class="post_card_text">
@@ -26,14 +27,14 @@
                     <p class="post_card_content">{{post.content}}</p>
                 </div>
                 <div class="post_card_buttons">
-                    <form action= "/delete/{{post.id}}" method = "post">
-                        <button class="delete_button button">Delete</button>
-                    </form>
                     <!-- Production Code -->
                     <!-- <button class="edit_button button" onclick="{{'handleClick('+str(post.id) +', \''+ post.title +'\', \''+ post.content +'\')'}}">edit</button> --> 
                     
                     <!-- Dev Code -->
                     <button class="edit_button button" onclick='handleClick("{{post.id}}", "{{post.title}}", "{{post.content}}")'>edit</button>
+                    <form action= "/delete/{{post.id}}" method = "post">
+                        <button class="delete_button button">Delete</button>
+                    </form>
 
                 </div>
                 

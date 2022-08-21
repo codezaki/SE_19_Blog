@@ -13,11 +13,12 @@ body{
 #top_bar {
     height: 100px;
     color: white;
-    background-color: lightgray;
+    background-color: darkcyan;
     font-size: 65px;
     padding-left: 30px;
     padding-top: 20px;
     font-weight: bold;
+    padding-left: 90px;
 }
 
 #login_space {
@@ -212,4 +213,16 @@ body{
 textarea {
     resize: none;
     font-family: "Roboto";
+}
+
+#your_posts {
+    margin: 0 auto;
+    text-align: center;
+    margin: 30px;
+}
+
+.line {
+    color: lightgray;
+    text-align: center;
+    margin-top: 10px;
 }
