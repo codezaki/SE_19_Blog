@@ -1,8 +1,10 @@
+from json import JSONEncoder
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from re import escape
 from sqlalchemy_serializer import SerializerMixin
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -17,11 +19,17 @@ class Post(db.Model, SerializerMixin):
 
     def __repr__(self):
         return '<Task %r>' % self.id
+
+
     
 @app.route("/")
 def hello_world():
     posts = Post.query.all()
-    return render_template("profile_page.html", posts = posts, str = str, escape = escape, enumerate = enumerate)
+    res = []
+    for post in posts:
+        res.append(post.to_dict())
+
+    return render_template("profile_page.html", posts = res, str = str, escape = escape, enumerate = enumerate, jsonify = JSONEncoder().encode)
 
 @app.route("/createpost", methods = ["POST"])
 def submit_post():
