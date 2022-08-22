@@ -4,16 +4,31 @@
     <div id="signup_space">
         <div id="login_title">
             SIGNUP
-            <button id="signup">LOGIN</button>
+            <a href="{{url_for('login')}}">
+                <button id="signup">LOGIN</button>
+            </a>
         </div>  
         <div id="signup_inputs">
-            <input id="input" placeholder="COOL NAME"><br>
-            <input id="input" placeholder="EMAIL ADDRESS"><br>
-            <input id="input" placeholder="USERNAME"><br>
-            <input id="input" type="password" placeholder="PASSWORD"><br>
-            <input id="input" type="password" placeholder="REPEAT PASSWORD"><br>
-            <button id="submit">SUBMIT</button>
+            <form action="/signup_attempt" method = "post">
+                <input name = "name" class="input" placeholder="NAME"><br>
+                <input name = "username" class="input" placeholder="USERNAME"><br>
+                
+                <input name="password" class="input" type="password" placeholder="PASSWORD"><br>
+                <input name="password_repeat" class="input" type="password" placeholder="REPEAT PASSWORD"><br>
+                
+                <button type="submit" id="submit">SUBMIT</button>
+            </form>
         </div>
     </div>
+    <script>
+        let query_params = new URLSearchParams(window.location.search)
+        console.log(query_params)
+        if (query_params.get('passwords_match') == "False") {
+            alert('Passwords do not match')
+        }
+        else if (query_params.get('username_taken') == "True") {
+            alert('Username taken')
+        }
+    </script>
 
 {% endblock %}

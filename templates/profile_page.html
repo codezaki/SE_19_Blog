@@ -4,7 +4,7 @@
     <div id="upper_profile_area">
         <div id="profile_name_avatar">
             <div id="avatar">Profile picture</div><br>
-            <div id="profile_name">COOL NAME</div>
+            <div id="profile_name">{{name_of_user}}</div>
         </div>
         <div id="create_post">
             <h2>Create Post</h2> 
@@ -28,12 +28,7 @@
             </div>
             <div class="post_card_buttons">
                 
-                <!-- Production Code
-                    #<button class="edit_button button" onclick="{{'handleClick('+str(post.id) +', \''+ post.title +'\', \''+ post.content +'\')'}}">edit</button> 
-                    
-                    Dev Code -->
-                    
-                    <!-- <button class="edit_button button" onclick='handleClick(`{{post.id}}`, `{{escape(post.title)}}`, `{{escape(post.content)}}`)'>edit</button>                    -->
+
                     <button class="edit_button button" data-post = "{{jsonify(post)}}">edit</button>                   
                     <form action= "/delete/{{post.id}}" method = "post">
                         <button class="delete_button button">Delete</button>

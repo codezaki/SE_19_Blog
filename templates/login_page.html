@@ -5,12 +5,14 @@
     <div id="login_space">
         <div id="login_title">
             LOGIN
-            <button id="signup">SIGNUP</button>
+            <a href="{{url_for('signup')}}"><button id="signup">SIGNUP</button></a>
         </div>  
         <div id="login_inputs">
-            <input id="input" placeholder="USERNAME"><br>
-            <input id="input" type="password" placeholder="PASSWORD"><br>
-            <button id="submit">SUBMIT</button>
+            <form action="/login_attempt" method="post">
+                <input name = "username" class= "input" placeholder="USERNAME"><br>
+                <input name = "password" class="input" type="password" placeholder="PASSWORD"><br>
+                <button id="submit">SUBMIT</button>
+            </form>
         </div>
     </div>
 

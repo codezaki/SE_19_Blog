@@ -1,4 +1,9 @@
 /*Login page */
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+
 body{
     font-family: "Roboto";
     margin: 0;
@@ -11,15 +16,30 @@ body{
 }
 
 #top_bar {
-    height: 100px;
-    color: white;
+    display: flex;
+    justify-content: space-between;
+    color: lightcyan;
     background-color: darkcyan;
-    font-size: 65px;
+    font-size: 35px;
     padding-left: 30px;
-    padding-top: 20px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-weight: bold;
     padding-left: 90px;
 }
+
+.top_buttons{
+    float: right;
+    margin-right: 10px;
+}
+
+#Blogr {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
 
 #login_space {
     height: 400px;
@@ -47,7 +67,7 @@ body{
     padding-top: 60px;
 }
 
-#input {
+.input {
     height: 30px;
     width: 300px;
     margin-top: 10px;
@@ -175,6 +195,11 @@ body{
 
 }
 
+.nav_button {
+    background-color: lightcyan;
+    color: darkcyan;
+}
+
 .button:hover {
     cursor: pointer;
 }
@@ -235,3 +260,4 @@ textarea {
     padding: -23px;
     margin: 23px;
 }
+
