@@ -21,16 +21,16 @@ login_manager.login_view = 'login'
 login_manager.init_app(app)
 
 class Post(db.Model, SerializerMixin):
-    __tablename__ = 'post'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(500), nullable=False)
     title = db.Column(db.String(50), nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow) 
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False) 
     author = db.relationship('User', back_populates='user_posts', uselist = False)
     
 
 class User(db.Model, UserMixin, SerializerMixin):
-    __tablename__ = 'user'
+    serialize_rules = ('-user_posts.user', )
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
     username = db.Column(db.String(20), nullable=False, unique=True)
@@ -45,6 +45,7 @@ def load_user(user_id):
 
 @app.route("/")
 def signup():
+    print(request)
     return render_template("signup_page.html", passwords_match = True, username_taken = False)
 
 @app.route("/login")
@@ -146,6 +147,7 @@ def logout():
 def homepage():
     posts = Post.query.all() ##To keep them in chronological order
     posts.reverse()
+    print(posts[0].author.name)
     return render_template('/homepage.html', posts = posts)
 
 
