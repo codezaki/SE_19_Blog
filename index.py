@@ -152,7 +152,6 @@ def homepage():
     return render_template('/homepage.html', posts = posts)
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
 
 
