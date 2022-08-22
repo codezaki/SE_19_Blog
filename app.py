@@ -12,7 +12,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://zwkpvvfpyyxewl:08840ff2b2428b5296592ca05c9a84a8e5adac7ffb912e647f6d89f917dc8250@ec2-34-203-182-65.compute-1.amazonaws.com:5432/dc8e6j42j72qnr'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'd9c6926142d33bc4099f47d04d411ce8eb8f760d958884471fbf7a8752e8ee56'
 
