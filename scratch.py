@@ -1,4 +1,4 @@
-from index import db, Post
+from app import db, Post
 
 posts = Post.query.all()
 for post in posts:
